@@ -1,0 +1,243 @@
+<html>
+    <head>
+        <title>Tourist Place list</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="js/script.js" defer></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <!-- Code for generating Navbar -->
+        <nav>
+            <ul>
+                <li><a sty href="/">Tourist Place</a></li>
+                <li><a href="/create.html">Create</a></li>
+                <li><a href="#">List</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+
+        <div id="toast" class="toast">
+            <p id="toast-message"></p>
+        </div>
+
+        <!-- Code for generating table -->
+
+        <div class="container">
+            <div class="header">
+                <h1>List of places</h1>
+            </div>
+
+            <table class="place_table">
+                <thead>
+                    <tr style="background-color: #fff">
+                        <td colspan="2">
+                            <input
+                                onchange="searchInTable()"
+                                placeholder="Enter a name to search"
+                                type="text"
+                                name="name"
+                                id="table_search"
+                                class="input_box"
+                            />
+                        </td>
+                        <td colspan="3" style="text-align: right">
+                            <a href="/create.html" class="btn add_new"
+                                >Add New Place</a
+                            >
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Rating</th>
+                        <th>Picture</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="table_body"></tbody>
+            </table>
+        </div>
+
+        <!-- Code for generating Modal -->
+
+        <div id="myModal" class="modal">
+            <div class="modal_content">
+                <div class="modal_header">
+                    <span
+                        id="modal_close_btn"
+                        class="close"
+                        onclick="closeModal()"
+                        >&times;</span
+                    >
+                    <h2>Edit Place</h2>
+                </div>
+                <div class="modal_body">
+                    <div class="input_form">
+                        <form
+                            class="form"
+                            name="update_form"
+                            onsubmit="return updatePlace()"
+                        >
+                            <input
+                                type="hidden"
+                                name="modal_id"
+                                id="modal_id"
+                            />
+                            <div class="grid_container grid_row_1">
+                                <div class="grid_item">
+                                    <div class="grid_container grid_row_2">
+                                        <div class="grid_item">
+                                            <label class="input_label"
+                                                >Name:</label
+                                            >
+                                        </div>
+                                        <div class="grid_item">
+                                            <input
+                                                id="modal_name"
+                                                type="text"
+                                                name="modal_name"
+                                                class="input_box"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid_item">
+                                    <div class="grid_container grid_row_2">
+                                        <div class="grid_item">
+                                            <label class="input_label"
+                                                >Address:</label
+                                            >
+                                        </div>
+                                        <div class="grid_item">
+                                            <input
+                                                id="modal_address"
+                                                type="text"
+                                                name="modal_address"
+                                                class="input_box"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid_item">
+                                    <div class="grid_container grid_row_2">
+                                        <div class="grid_item">
+                                            <label class="input_label"
+                                                >Rating:</label
+                                            >
+                                        </div>
+                                        <div class="grid_item">
+                                            <select
+                                                id="modal_rating"
+                                                type="number"
+                                                name="modal_rating"
+                                                class="input_box"
+                                            >
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid_item">
+                                    <div class="grid_container grid_row_2">
+                                        <div class="grid_item">
+                                            <label class="input_label"
+                                                >Type:</label
+                                            >
+                                        </div>
+                                        <div class="grid_item">
+                                            <select
+                                                name="modal_type"
+                                                id="modal_type"
+                                                class="input_box"
+                                            >
+                                                <option value="Beach">
+                                                    Beach
+                                                </option>
+                                                <option value="Hills">
+                                                    Hills
+                                                </option>
+                                                <option value="Fountain">
+                                                    Fountain
+                                                </option>
+                                                <option value="Landmark">
+                                                    Landmark
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid_item">
+                                    <div class="grid_container grid_row_2">
+                                        <div class="grid_item">
+                                            <label class="input_label"
+                                                >Picture:</label
+                                            >
+                                        </div>
+                                        <div class="grid_item">
+                                            <div style="display: flex">
+                                                <input
+                                                    type="file"
+                                                    id="modal_file"
+                                                    name="modal_file"
+                                                    class=""
+                                                    onchange="previewModalFile()"
+                                                    accept="image/*"
+                                                />
+
+                                                <img
+                                                    id="previewModalImg"
+                                                    alt="image"
+                                                    style="display: block"
+                                                    height="100px"
+                                                    width="100px"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="grid_item">
+                                    <div class="flex">
+                                        <button
+                                            class="btn submit"
+                                            type="submit"
+                                        >
+                                            Update
+                                        </button>
+                                        <button class="btn reset">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-container" id="warning_modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Warning</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to Delete?</p>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="closeWarningModal()" class="cancel-btn">
+                        Cancel
+                    </button>
+                    <button onclick="deleteItem()" class="confirm-btn">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,151 @@
+<html>
+    <head>
+        <title>Tourist Place</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="js/script.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="/">Tourist Place</a></li>
+                <li><a href="/">Create</a></li>
+                <li><a href="list.html">List</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+
+        <div id="toast" class="toast">
+            <p id="toast-message"></p>
+        </div>
+
+        <div class="container">
+            <div class="header">
+                <p style="font-size: 20px">Add a new Tourist Place</p>
+            </div>
+
+            <div class="input_form">
+                <form
+                    name="createForm"
+                    class="form"
+                    id="createForm"
+                    onsubmit=" return createPlace()"
+                >
+                    <div class="grid_container grid_row_1">
+                        <div class="grid_item">
+                            <div class="grid_container grid_row_2">
+                                <div class="grid_item">
+                                    <label class="input_label">Name:</label>
+                                </div>
+                                <div class="grid_item">
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        class="input_box"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid_item">
+                            <div class="grid_container grid_row_2">
+                                <div class="grid_item">
+                                    <label class="input_label">Address:</label>
+                                </div>
+                                <div class="grid_item">
+                                    <input
+                                        type="text"
+                                        name="address"
+                                        class="input_box"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid_item">
+                            <div class="grid_container grid_row_2">
+                                <div class="grid_item">
+                                    <label class="input_label">Rating:</label>
+                                </div>
+                                <div class="grid_item">
+                                    <select
+                                        name="rating"
+                                        class="input_box"
+                                        required
+                                    >
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid_item">
+                            <div class="grid_container grid_row_2">
+                                <div class="grid_item">
+                                    <label class="input_label">Type:</label>
+                                </div>
+                                <div class="grid_item">
+                                    <select name="type" class="input_box">
+                                        <option value="Beach">Beach</option>
+                                        <option value="Hills">Hills</option>
+                                        <option value="Fountain">
+                                            Fountain
+                                        </option>
+                                        <option value="Landmark">
+                                            Landmark
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid_item">
+                            <div class="grid_container grid_row_2">
+                                <div class="grid_item">
+                                    <label class="input_label">Picture:</label>
+                                </div>
+                                <div class="grid_item">
+                                    <div style="display: flex">
+                                        <input
+                                            type="file"
+                                            id="myFile"
+                                            name="filename"
+                                            class=""
+                                            required
+                                            onchange="previewFile()"
+                                            accept="image/*"
+                                        />
+
+                                        <img
+                                            id="previewImg"
+                                            alt="image"
+                                            style="display: none"
+                                            height="100px"
+                                            width="100px"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid_item">
+                            <div class="flex">
+                                <button type="submit" class="btn submit">
+                                    Submit
+                                </button>
+                                <button onclick="ResetForm()" class="btn reset">
+                                    Reset
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

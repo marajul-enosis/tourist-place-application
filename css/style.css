@@ -1,0 +1,264 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.container {
+    margin: 0 auto 0 auto;
+    max-width: 1200px;
+    padding: 0 15px;
+    /* background-color: #f8f8f8; */
+}
+
+.flex {
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 5px;
+    flex-direction: row-reverse;
+}
+
+.header {
+    /* padding: 0px 0; */
+    text-align: center;
+}
+
+.input_form {
+    padding: 15px 0;
+    margin: 0 auto 0 auto;
+    background-color: rgb(255, 255, 255);
+    /* width: 900px; */
+    /* display: flex;
+    align-items: center; */
+    /* justify-content: center; */
+    /* text-align: center; */
+}
+.form {
+    margin: auto;
+    /* background-color: red; */
+    max-width: 500px;
+}
+
+.grid_container {
+    display: grid;
+
+    grid-gap: 20px;
+    padding: 10px;
+}
+.grid_row_1 {
+    grid-template-columns: 100%;
+}
+.grid_row_2 {
+    grid-template-columns: 15% 85%;
+}
+
+.input_box {
+    /* min-width: 250px; */
+    width: 100%;
+    padding: 5px;
+    border: 1px #1f0808;
+    border-style: solid none none solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: vertical;
+    background-color: #f0f3e8;
+}
+
+/* make a green button  */
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.submit {
+    color: #ddd;
+    background-color: #4caf50;
+}
+.reset {
+    background-color: #c7c53b;
+}
+.update {
+    color: #fff;
+    background-color: #07a4ff;
+}
+.delete {
+    color: #fff;
+    background-color: #ec1515;
+}
+.add_new {
+    color: #ffffff;
+    background-color: #7497cc;
+    text-decoration: none;
+}
+
+/* List page Css */
+
+.place_table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #0a0a0a;
+    font-size: 13px;
+}
+.place_table th {
+    background-color: #131212;
+    color: #ddd;
+    font-weight: 25px;
+    margin: 2px;
+    /* border: 2px solid #ddd; */
+    padding: 8px;
+    text-align: center;
+}
+
+.place_table td {
+    /* border: 1px solid #ddd; */
+    /* margin:  */
+    padding: 8px;
+    text-align: center;
+}
+
+.table_img {
+    width: 100px;
+    height: 100px;
+}
+
+.place_table tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+.place_table tr:hover {
+    background-color: #f19595;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 30px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* background-color: rgb(0,0,0);  */
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal_content {
+    background-color: #ffffff;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 10px;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal_header {
+    text-align: center;
+    padding: 2px 16px;
+}
+
+/* Confirm modal css */
+
+.modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.cancel-btn,
+.confirm-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.cancel-btn {
+    background-color: lightgray;
+    margin-right: 10px;
+}
+
+.confirm-btn {
+    background-color: tomato;
+    color: white;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 20px;
+    background-color: lightgray;
+    border-radius: 5px;
+    display: none;
+}

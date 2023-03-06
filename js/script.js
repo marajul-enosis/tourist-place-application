@@ -392,3 +392,11 @@ function getDataFromLocalStorage(){
     // generateTableHead(tableData);
 }
 
+
+//  code for generating sorting 
+
+
+const sortTable = (dataTable,row)=>{
+
+}
+
